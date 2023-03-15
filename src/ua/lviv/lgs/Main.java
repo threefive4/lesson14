@@ -14,22 +14,20 @@ public class Main {
             System.out.println(obj.getAnimal() + " " + obj.getCount());
         }
 
-        Queue<Zoo> myQueue = new PriorityQueue<>(new Comparator<Zoo>() {
-            @Override
-            public int compare(Zoo o1, Zoo o2) {
-                return o1.getAnimal().compareTo(o2.getAnimal());
-            }
-        });
-
-        for (Zoo obj : mySet) {
-            myQueue.add(obj);
+        Set<Zoo> sortedByAnimalSet = new HashSet<>();
+        sortedByAnimalSet.addAll(mySet);
+        System.out.println("sorted by animal name: ");
+        for (Zoo zoo : sortedByAnimalSet) {
+            System.out.println(zoo);
+        }
+        Set<Zoo> sortedByCountSet = new TreeSet<Zoo>();
+        sortedByCountSet.addAll(mySet);
+        System.out.println("Zoo set sorted by count:");
+        for (Zoo zoo : sortedByCountSet) {
+            System.out.println(zoo);
         }
 
-        System.out.println("відсортований список: ");
-        while (!myQueue.isEmpty()) {
-            Zoo obj = myQueue.poll();
-            System.out.println(obj.getAnimal() + " " + obj.getCount());
-        }
+
     }
 }
 
